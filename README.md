@@ -342,3 +342,86 @@ Ensure that the dataset is downloaded and extracted into the expected folder str
 ```bash
 python fruit_counting.py
 ```
+
+
+
+
+# Parking Slot Occupancy Detection 
+
+## 1. Project Title
+**Parking Slot Occupancy Detection Using Computer Vision**
+
+## 2. Problem Statement
+Finding available parking spaces in crowded parking areas can be time-consuming and inconvenient. Manual monitoring of parking spaces requires continuous observation and may lead to delays and inaccurate identification of vacant spaces. A computer vision-based system can help identify occupied and vacant parking spaces automatically from images.
+
+## 3. Objective
+The main objective of this project is to develop an object detection model that identifies parking spaces as **Occupied** or **Vacant** using the YOLO11 deep learning model. The project aims to automate parking space monitoring, reduce the effort required for manual inspection, and demonstrate the application of computer vision in intelligent parking systems.
+
+## 4. Dataset
+The project uses a parking lot image dataset obtained from Kaggle.
+
+- Total images: 150
+- Training images: 120
+- Validation images: 30
+- Annotation format provided: JSON
+- Model training annotation format: YOLO
+- Classes: Occupied and Vacant
+
+The JSON annotations were converted into YOLO-compatible bounding box labels. The dataset was divided into training and validation sets to train and evaluate the object detection model.
+
+## 5. Methodology
+The project was completed using the following steps:
+
+1. **Dataset collection:** Obtained the parking lot image dataset from Kaggle.
+2. **Data preparation:** Extracted the dataset and inspected the images and JSON annotations.
+3. **Annotation conversion:** Converted the bounding box coordinates into YOLO format and assigned class IDs to Occupied and Vacant parking spaces.
+4. **Dataset splitting:** Divided the dataset into 120 training images and 30 validation images.
+5. **Model training:** Trained a YOLO11n object detection model for 10 epochs using CPU.
+6. **Model evaluation:** Evaluated the trained model using precision, recall, mean Average Precision (mAP), and evaluation plots.
+7. **Prediction testing:** Tested the trained model on a validation image and saved the resulting image with detected parking spaces.
+8. **Result analysis:** Examined the evaluation metrics, confusion matrix, precision-recall curve, and prediction images.
+
+## 6. Tools and Libraries Used
+- **Python:** Main programming language.
+- **Ultralytics YOLO11:** Object detection model used for training and prediction.
+- **PyTorch:** Deep learning framework used by the model.
+- **OpenCV:** Image processing support.
+- **JSON:** Reading the original dataset annotations.
+- **Google Colab:** Cloud-based environment used for training and evaluation.
+
+## 7. Results
+The trained YOLO11n model was evaluated on 30 validation images containing 562 annotated objects.
+
+### Overall Evaluation Results
+
+| Metric | Result |
+|---|---:|
+| Precision | 88.36% |
+| Recall | 91.22% |
+| mAP@50 | 92.23% |
+| mAP@50–95 | 73.97% |
+
+### Class-wise Results
+
+| Class | Precision | Recall | mAP@50 |
+|---|---:|---:|---:|
+| Occupied | 93.5% | 94.6% | 97.7% |
+| Vacant | 83.2% | 87.8% | 86.7% |
+
+The model was also tested on a validation image named `126.jpg`, where it reported 29 detections classified as Occupied.
+
+The evaluation generated a confusion matrix, precision-recall curve, precision curve, recall curve, F1 curve, and prediction comparison images. These outputs are saved in the project's `results/final_evaluation` directory.
+
+The results indicate good detection performance on the validation dataset. However, the validation set is relatively small, and performance may differ on unseen images or under different lighting and camera conditions.
+
+## 8. Conclusion
+This project demonstrates how deep learning and computer vision can be used to detect occupied and vacant parking spaces automatically. The YOLO11n model achieved an overall mAP@50 of 92.23% on the validation dataset. The project provided practical experience in dataset preparation, annotation conversion, object detection model training, evaluation, and result visualization.
+
+In the future, the system could be improved by using a larger and more diverse dataset, testing on live camera footage, and integrating the model into a real-time parking management application.
+
+---
+
+**Project:** Parking Slot Occupancy Detection Using YOLO11  
+**Model:** YOLO11n  
+**Dataset split:** 120 training images and 30 validation images  
+**Environment:** Google Colab
