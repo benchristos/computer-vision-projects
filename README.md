@@ -73,3 +73,77 @@ Future improvements could include training with more diverse road images, tuning
 
 
 
+# Traffic Sign Recognition Using CNN
+
+## 1. Project Title
+**Traffic Sign Recognition Using Convolutional Neural Network (CNN)**
+
+## 2. Problem Statement
+Traffic sign recognition is an important task in intelligent transportation systems and autonomous driving. Traffic signs provide essential information about speed limits, road conditions, warnings, and traffic regulations. Manually identifying traffic signs can be challenging in different lighting and road conditions. Therefore, an automated system is needed to recognize traffic signs accurately from images.
+
+## 3. Objective
+The main objective of this project is to develop a deep learning model using a Convolutional Neural Network (CNN) to classify traffic sign images into 43 different categories. The project aims to train and evaluate the model using a traffic sign dataset and measure its performance on unseen test images.
+
+## 4. Dataset
+This project uses the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset.
+
+- Training images: 39,209
+- Test images: 12,630
+- Number of classes: 43
+- Image input size: 30 × 30 pixels
+- Image format: RGB
+
+The dataset contains images representing different traffic signs, such as speed limits, warning signs, and prohibition signs. The images are resized and normalized before being used by the CNN model.
+
+Dataset source: [GTSRB – German Traffic Sign Recognition Benchmark](https://benchmark.ini.rub.de/gtsrb_dataset.html)
+
+## 5. Methodology
+The project was developed using the following steps:
+
+1. **Dataset Preparation:** Loaded the traffic sign images and their corresponding class labels.
+2. **Preprocessing:** Resized images to 30 × 30 pixels, converted them into RGB format, and normalized pixel values to the range 0–1.
+3. **Data Splitting:** Divided the training dataset into training and validation sets.
+4. **Model Development:** Built a CNN architecture containing convolutional layers, max-pooling layers, a flatten layer, dense layers, and a dropout layer.
+5. **Model Training:** Trained the CNN model for 10 epochs using the training dataset.
+6. **Validation:** Evaluated the model on the validation dataset to monitor its performance.
+7. **Testing:** Evaluated the trained model on 12,630 separate test images.
+8. **Performance Analysis:** Generated a classification report, confusion matrix, and CSV file containing actual labels, predicted labels, correctness, and prediction confidence.
+9. **Model Saving:** Saved the trained model in Keras format for future use.
+
+## 6. Tools and Libraries Used
+- **Python** – Programming language
+- **Google Colab** – Development and execution environment
+- **TensorFlow and Keras** – CNN model development and training
+- **NumPy** – Numerical operations and array processing
+- **Pandas** – Dataset and CSV file handling
+- **Matplotlib** – Visualization of training results
+- **Seaborn** – Confusion matrix visualization
+- **Scikit-learn** – Classification report, confusion matrix, and evaluation metrics
+- **Pillow (PIL)** – Image processing
+
+## 7. Results
+The trained CNN model achieved the following results:
+
+| Evaluation Metric | Result |
+|---|---:|
+| Validation Accuracy | 99.46% |
+| Test Accuracy | 95.41% |
+| Total Test Images | 12,630 |
+| Correct Predictions | 12,050 |
+| Incorrect Predictions | 580 |
+| Average Prediction Confidence | 97.43% |
+
+The model achieved 99.46% accuracy on the validation dataset and 95.41% accuracy on the separate test dataset. The confusion matrix was generated to examine classification performance across the 43 traffic sign classes.
+
+The project also produced a saved Keras model and a CSV file containing the test prediction results.
+
+## 8. Conclusion
+This project demonstrates how a Convolutional Neural Network can be used to recognize and classify traffic signs from images. The model achieved 95.41% accuracy on the separate test dataset, demonstrating its ability to classify many traffic sign images correctly.
+
+The project helped develop practical knowledge of image preprocessing, deep learning, CNN architecture, model training, evaluation, and visualization. In the future, the system could be improved through data augmentation, further model optimization, and testing under different real-world lighting and weather conditions.
+
+**Author:** Ben Christos Thomas
+
+**Project Type:** Computer Vision / Deep Learning
+
+**Model:** Convolutional Neural Network (CNN)
