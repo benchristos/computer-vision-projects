@@ -235,3 +235,110 @@ Road_Lane_Detection/
 
 ## Safety Notice
 This project is intended for educational purposes only. It must not be used as a real-world lane-departure warning or vehicle safety system without substantial further development and validation.
+
+
+
+
+
+
+# Fruit Counting Using OpenCV
+
+## 1. Project Title
+**Fruit Counting Using OpenCV**
+
+## 2. Problem Statement
+Counting fruits in images manually can be time-consuming. Computer Vision techniques can help identify objects in images and estimate their number automatically. This project uses OpenCV to detect fruit-shaped regions in images through image processing and contour detection.
+
+## 3. Objective
+The main objective of this project is to implement a basic fruit-region detection system using Python and OpenCV. The system processes fruit images, detects candidate regions, draws bounding boxes around them, and reports the number of detected regions.
+
+## 4. Dataset
+The project uses a fruit image dataset containing **359 images across nine categories**:
+
+- Apple
+- Banana
+- Cherry
+- Chickoo
+- Grapes
+- Kiwi
+- Mango
+- Orange
+- Strawberry
+
+The images were uploaded to Google Colab and extracted into category-specific folders. The original dataset download link should be added here.
+
+**Dataset structure:**
+- `apple fruit/`
+- `banana fruit/`
+- `cherry fruit/`
+- `chickoo fruit/`
+- `grapes fruit/`
+- `kiwi fruit/`
+- `mango fruit/`
+- `orange fruit/`
+- `strawberry fruit/`
+
+## 5. Methodology
+The project follows these Computer Vision steps:
+
+1. **Image acquisition:** Load fruit images from the dataset.
+2. **Image resizing:** Resize images to 400 × 400 pixels.
+3. **Grayscale conversion:** Convert the images from colour to grayscale.
+4. **Noise reduction:** Apply Gaussian blur to reduce image noise.
+5. **Thresholding:** Use Otsu's thresholding method to separate foreground and background regions.
+6. **Contour detection:** Detect external contours in the binary image.
+7. **Contour filtering:** Ignore contours with an area of 1,000 pixels or less.
+8. **Bounding-box drawing:** Draw green rectangles around the remaining regions.
+9. **Region counting:** Count the detected regions and save the results in a CSV file.
+
+## 6. Tools and Libraries Used
+- **Python:** Main programming language.
+- **OpenCV:** Image processing, thresholding and contour detection.
+- **Pandas:** Storing and exporting detection results.
+- **Matplotlib:** Displaying and visualising fruit detection outputs.
+- **Google Colab:** Cloud-based development and testing environment.
+- **GitHub:** Project storage and version control.
+
+## 7. Results
+The system was tested on one sample image from each of the nine fruit categories.
+
+| Fruit category | Detected regions |
+|---|---:|
+| Apple | 1 |
+| Banana | 1 |
+| Cherry | 2 |
+| Chickoo | 1 |
+| Grapes | 3 |
+| Kiwi | 1 |
+| Mango | 1 |
+| Orange | 2 |
+| Strawberry | 1 |
+| **Total** | **13** |
+
+The results show that the algorithm can identify candidate image regions and display bounding boxes. However, detected regions are not necessarily equal to the actual number of fruits.
+
+**Performance evaluation:** The current implementation reports detected-region counts. Ground-truth fruit counts have not been established, so accuracy, precision, recall and counting error cannot yet be reliably calculated.
+
+## 8. Conclusion
+This project demonstrates a basic Computer Vision approach to fruit-region detection using OpenCV. Techniques such as grayscale conversion, Gaussian blur, Otsu thresholding and contour detection were implemented and tested on nine fruit categories.
+
+The results demonstrate the working image-processing pipeline. However, the system has limitations when dealing with complex backgrounds, overlapping fruits, shadows and differences in lighting. Future improvements could include colour-based segmentation, watershed segmentation or a trained object-detection model to improve detection and counting reliability.
+
+## Project Files
+- `fruit_counting.py` — Python source code.
+- `requirements.txt` — Required Python libraries.
+- `results/fruit_detection_results.csv` — Detection results.
+- `dataset/README.md` — Dataset information.
+
+## How to Run
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+Ensure that the dataset is downloaded and extracted into the expected folder structure. Update the dataset path in the source code if necessary, then run:
+
+```bash
+python fruit_counting.py
+```
