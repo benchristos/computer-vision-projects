@@ -147,3 +147,91 @@ The project helped develop practical knowledge of image preprocessing, deep lear
 **Project Type:** Computer Vision / Deep Learning
 
 **Model:** Convolutional Neural Network (CNN)
+
+
+
+
+# Road Lane Detection and Departure Warning
+
+## 1. Project Title
+**Road Lane Detection and Departure Warning Using Computer Vision**
+
+## 2. Problem Statement
+Lane detection is an important application of computer vision in advanced driver assistance systems. Detecting road lane markings can help identify lane boundaries and support lane-departure warning systems. However, variations in road markings, lighting conditions, image quality, and road appearance can make lane detection challenging.
+
+This project explores road lane detection using image processing techniques. The current implementation detects candidate lane-line segments but requires further improvement to reliably identify both lane boundaries.
+
+## 3. Objective
+The main objectives of this project are:
+- To detect road lane markings from road images.
+- To preprocess images for improved lane detection.
+- To identify edges and candidate lane-line segments.
+- To estimate lane boundaries using detected line segments.
+- To develop a basic lane-detection status system.
+- To explore the concepts behind lane-departure warning systems.
+
+## 4. Dataset
+The project uses a road-line image dataset containing road images for lane-detection experiments.
+
+- **Dataset format:** Image files
+- **Dataset usage:** Testing image preprocessing, edge detection, and lane-line identification.
+- **Image used in the current test:** One road image resized to 960 × 1280 pixels.
+- **Dataset source:** The dataset archive used in Google Colab.
+
+The dataset name, original source, and license should be added here once verified.
+
+## 5. Methodology
+The project follows these steps:
+
+1. **Image loading:** Load a road image using OpenCV.
+2. **Image resizing:** Resize the image to 960 × 1280 pixels for processing.
+3. **Grayscale conversion:** Convert the image to grayscale to simplify image processing.
+4. **Gaussian blurring:** Reduce image noise before edge detection.
+5. **Canny edge detection:** Identify strong edges that may correspond to road markings.
+6. **Region of interest (ROI):** Apply a polygon mask to focus processing on a selected region of the road image.
+7. **Hough line detection:** Use the Probabilistic Hough Transform to identify candidate line segments.
+8. **Lane-line filtering:** Separate candidate segments according to their slopes and horizontal positions.
+9. **Boundary estimation:** Estimate a left lane boundary from candidate line segments.
+10. **Output generation:** Draw detected lines, display the detection status, and save the output images and test report.
+
+## 6. Tools and Libraries Used
+- **Python:** Main programming language.
+- **OpenCV:** Image processing, edge detection, line detection, and drawing.
+- **NumPy:** Numerical calculations and array operations.
+- **Matplotlib:** Displaying road images and detection results.
+- **Google Colab:** Cloud-based coding and execution environment.
+
+## 7. Results
+The project successfully performed image preprocessing, edge detection, region-of-interest masking, and candidate line-segment detection.
+
+The current test produced the following results:
+
+- Input image dimensions: 960 × 1280 pixels.
+- Detected left boundary: Estimated.
+- Right-side candidate line segments: 11.
+- Reliable right boundary: Not detected.
+- Detection status: `LANE DETECTION INCOMPLETE`.
+- Output images and a test report: Generated successfully.
+
+The results demonstrate the basic image-processing and line-detection workflow. However, both lane boundaries have not yet been reliably detected, so the lane-departure warning feature requires further development and validation.
+
+## 8. Conclusion
+This project demonstrates the use of Python and OpenCV for basic road lane detection using computer vision. Techniques such as grayscale conversion, Gaussian blurring, Canny edge detection, region-of-interest masking, and the Probabilistic Hough Transform were implemented to identify candidate lane markings.
+
+The current implementation estimates the left lane boundary but does not reliably detect the right boundary. Future improvements can include better region-of-interest selection, filtering of irrelevant line segments, perspective transformation, and testing on additional road images under different conditions.
+
+This project provides a foundation for learning about lane detection and the development of driver-assistance technologies. It is an experimental educational project and is not suitable for real-world driving decisions in its current state.
+
+## Project Structure
+
+```text
+Road_Lane_Detection/
+├── README.md
+└── results/
+    ├── lane_detection_output.jpg
+    ├── lane_warning_preview.jpg
+    └── test_report.txt
+```
+
+## Safety Notice
+This project is intended for educational purposes only. It must not be used as a real-world lane-departure warning or vehicle safety system without substantial further development and validation.
